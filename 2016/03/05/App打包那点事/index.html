@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>App打包那点事 | lbyte&#39;s road</title>
+  <title>App打包那点事 | lbyte的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用的一些知识点做个总结。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="App打包那点事">
 <meta property="og:url" content="http://lbyte.info/2016/03/05/App打包那点事/index.html">
-<meta property="og:site_name" content="lbyte's road">
+<meta property="og:site_name" content="lbyte的博客">
 <meta property="og:description" content="最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用的一些知识点做个总结。">
-<meta property="og:updated_time" content="2016-03-05T08:35:17.000Z">
+<meta property="og:updated_time" content="2016-03-05T08:57:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="App打包那点事">
 <meta name="twitter:description" content="最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用的一些知识点做个总结。">
   
-    <link rel="alternative" href="/atom.xml" title="lbyte&#39;s road" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="lbyte的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -41,6 +41,8 @@
 		  <h1 class="header-author"><a href="/">lbyte</a></h1>
 		</hgroup>
 
+		
+		<p class="header-subtitle">生活和代码都需要我们多些耐心多些思考</p>
 		
 
 		
@@ -122,7 +124,7 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.bibodeng.com">bibodeng的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.bibodeng.com">bibodeng的博客</a>
 			        
 			        </div>
 				</section>
@@ -157,6 +159,8 @@
 			<hgroup>
 			  <h1 class="header-author">lbyte</h1>
 			</hgroup>
+			
+			<p class="header-subtitle">生活和代码都需要我们多些耐心多些思考</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -224,7 +228,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用的一些知识点做个总结。<br><a id="more"></a></p>
+        <p>最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用的一些知识点做个总结。<a id="more"></a></p>
 <h3 id="webview的一些细节"><a href="#webview的一些细节" class="headerlink" title="webview的一些细节"></a>webview的一些细节</h3><p>####处理页面导航<br>一般来说，在webview中点击一个链接之后，Android会打开一个能处理URL事件的APP，例如你默认的浏览器，如果我们想要自己去处理webview中网页的前进后退甚至更多的事情，就可以利用<strong>WebviewClient</strong>.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WebView myWebView = (WebView) findViewById(R.id.webview);</span><br><span class="line">myWebView.setWebViewClient(<span class="keyword">new</span> WebViewClient());</span><br></pre></td></tr></table></figure>
 <p>竟然敢叫Native App，我们自然就不会只有一个页面，所以我们需要在用户点击某些链接时跳转到新的Activity，以及在页面开始加载时显示加载动画，页面结束加载时让动画结束，此时我们可以重载WebViewClient中的方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> WebViewClient mClient = <span class="keyword">new</span> WebViewClient() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageStarted</span><span class="params">(WebView view, String url, Bitmap favicon)</span> </span>&#123;</span><br><span class="line">            mRefreshLayout.setRefreshing(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView view, String url)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (mRefreshLayout.isRefreshing()) &#123;</span><br><span class="line">                mRefreshLayout.setRefreshing(<span class="keyword">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>&#123;</span><br><span class="line">            Intent intent = <span class="keyword">new</span> Intent(getActivity(), DetailsActivity.class);</span><br><span class="line">            intent.putExtra(AppUtil.KEY_URL, url);</span><br><span class="line">            startActivity(intent);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
