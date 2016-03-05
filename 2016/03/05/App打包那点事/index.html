@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>App打包那点事 | Hexo</title>
+  <title>App打包那点事 | lbyte&#39;s road</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具&amp;gt;，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接&amp;gt;入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用&amp;gt;的一些知识点做个总结。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="App打包那点事">
 <meta property="og:url" content="http://lbyte.info/2016/03/05/App打包那点事/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="lbyte's road">
 <meta property="og:description" content="最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具&amp;gt;，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接&amp;gt;入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用&amp;gt;的一些知识点做个总结。">
 <meta property="og:updated_time" content="2016-03-05T06:39:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="App打包那点事">
 <meta name="twitter:description" content="最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具&amp;gt;，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接&amp;gt;入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用&amp;gt;的一些知识点做个总结。">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="lbyte&#39;s road" type="application/atom+xml">
   
   
     <link rel="icon" href="http://lbyte.info/favicon.png">
@@ -487,22 +487,6 @@
     
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 <script src="/js/main.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 10;
-                var backgroundimg = "url(http://lbyte.info/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
 
 
 
