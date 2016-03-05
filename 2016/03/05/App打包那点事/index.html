@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://lbyte.info/2016/03/05/App打包那点事/index.html">
 <meta property="og:site_name" content="lbyte的博客">
 <meta property="og:description" content="最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用的一些知识点做个总结。">
-<meta property="og:updated_time" content="2016-03-05T08:57:32.000Z">
+<meta property="og:updated_time" content="2016-03-05T09:53:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="App打包那点事">
 <meta name="twitter:description" content="最近团队有需求将一个移动端网站打包成Android App，最初尝试过使用一些在线打包工具，但打包出来即难看又难用，所以还是撸起袖子自己干吧。需求无非是增加几个Tab栏，接入微博微信分享等社交功能，再用webview把网页加载进来，花了一点时间完成了，对常用的一些知识点做个总结。">
@@ -80,7 +80,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -244,6 +244,11 @@
 <p>###代码混淆<br>兴高采烈的打开混淆准备发布应用的时候发现，所有的<strong>js调用不生效了！</strong>打开<strong>proguard-rules.pro</strong>可以发现显著的提示：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># If your project uses WebView with JS, uncomment the following</span><br><span class="line"># and specify the fully qualified class name to the JavaScript interface</span><br><span class="line"># class:</span><br><span class="line">#-keepclassmembers class fqcn.of.javascript.interface.for.webview &#123;</span><br><span class="line">#   public *;</span><br><span class="line">#&#125;</span><br></pre></td></tr></table></figure></p>
 <p>所以，我们必须将有webviwe和js交互的类作声明,且必须使用完整的包名路径：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-keepclassmembers <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">google</span>.<span class="title">test</span>.<span class="title">TestActivity</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> *;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>同时4.2以上版本中我们需要对js调用接口作@javascriptinterface,声明，为了声明不丢失，我们还需要加上：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes *Annotation*</span><br><span class="line">-keepattributes *JavascriptInterface*</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li>本文于2015年10月17日发表于简书，现搬过来作为新博客的第一篇文章。</li>
+</ul>
+</blockquote>
 
       
     </div>
