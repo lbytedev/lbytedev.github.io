@@ -3,17 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: 踩过的坑 | lbyte的博客</title>
+    <title>Android M扫描WiFi列表的问题 | lbyte的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="android | lbyte | java | developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lbyte的博客">
-<meta property="og:url" content="http://lbyte.info/categories/踩过的坑/index.html">
+    <meta name="description" content="Android 6.0发布近一年之后，我们遇到了第一个Android 6.0的兼容性问题，getScanResults在Android6.0上返回了一个空列表，纳尼，你是在逗我么？去看了下Android 6.0某个分支下的getScanResults源码：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android M扫描WiFi列表的问题">
+<meta property="og:url" content="http://lbyte.info/2016/04/10/getScanResults扫描不出WiFi列表的问题/index.html">
 <meta property="og:site_name" content="lbyte的博客">
-<meta property="og:description" content="android | lbyte | java | developer">
+<meta property="og:description" content="Android 6.0发布近一年之后，我们遇到了第一个Android 6.0的兼容性问题，getScanResults在Android6.0上返回了一个空列表，纳尼，你是在逗我么？去看了下Android 6.0某个分支下的getScanResults源码：">
+<meta property="og:image" content="http://7xrkkx.com1.z0.glb.clouddn.com/book.jpeg">
+<meta property="og:updated_time" content="2016-04-10T14:12:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lbyte的博客">
-<meta name="twitter:description" content="android | lbyte | java | developer">
+<meta name="twitter:title" content="Android M扫描WiFi列表的问题">
+<meta name="twitter:description" content="Android 6.0发布近一年之后，我们遇到了第一个Android 6.0的兼容性问题，getScanResults在Android6.0上返回了一个空列表，纳尼，你是在逗我么？去看了下Android 6.0某个分支下的getScanResults源码：">
+<meta name="twitter:image" content="http://7xrkkx.com1.z0.glb.clouddn.com/book.jpeg">
     
 
     
@@ -172,20 +175,16 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">踩过的坑</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="android6.0-getScanResults扫描不出WiFi列表的问题" class="article article-type-android6.0" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/04/10/getScanResults扫描不出WiFi列表的问题/">Android M扫描WiFi列表的问题</a>
+        <h1 class="article-title" itemprop="name">
+            Android M扫描WiFi列表的问题
         </h1>
     
 
@@ -212,82 +211,164 @@ var _hmt = _hmt || [];
     </div>
 
                 </div>
-            </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://7xrkkx.com1.z0.glb.clouddn.com/book.jpeg" alt=""></p>
+<p>Android 6.0发布近一年之后，我们遇到了第一个Android 6.0的兼容性问题，getScanResults在Android6.0上返回了一个空列表，纳尼，你是在逗我么？去看了下Android 6.0某个分支下的getScanResults源码：<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;ScanResult&gt; <span class="title">getScanResults</span><span class="params">(String callingPackage)</span> </span>&#123;</span><br><span class="line">        enforceAccessPermission();</span><br><span class="line">        <span class="keyword">int</span> userId = UserHandle.getCallingUserId();</span><br><span class="line">        <span class="keyword">int</span> uid = Binder.getCallingUid();</span><br><span class="line">        <span class="keyword">boolean</span> canReadPeerMacAddresses = checkPeersMacAddress();</span><br><span class="line">        <span class="keyword">boolean</span> isActiveNetworkScorer =</span><br><span class="line">                NetworkScorerAppManager.isCallerActiveScorer(mContext, uid);</span><br><span class="line">        <span class="keyword">boolean</span> hasInteractUsersFull = checkInteractAcrossUsersFull();</span><br><span class="line">        <span class="keyword">long</span> ident = Binder.clearCallingIdentity();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!canReadPeerMacAddresses &amp;&amp; !isActiveNetworkScorer</span><br><span class="line">                    &amp;&amp; !isLocationEnabled()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!canReadPeerMacAddresses &amp;&amp; !isActiveNetworkScorer</span><br><span class="line">                    &amp;&amp; !checkCallerCanAccessScanResults(callingPackage, uid)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mAppOps.noteOp(AppOpsManager.OP_WIFI_SCAN, uid, callingPackage)</span><br><span class="line">                    != AppOpsManager.MODE_ALLOWED) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!isCurrentProfile(userId) &amp;&amp; !hasInteractUsersFull) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mWifiStateMachine.syncGetScanResultsList();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            Binder.restoreCallingIdentity(ident);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isLocationEnabled</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.LOCATION_MODE,</span><br><span class="line">                Settings.Secure.LOCATION_MODE_OFF) != Settings.Secure.LOCATION_MODE_OFF;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>重点在：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!canReadPeerMacAddresses &amp;&amp; !isActiveNetworkScorer</span><br><span class="line">                    &amp;&amp; !isLocationEnabled()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到如果定位关闭，那么将直接返回一个空的列表，当我去打开定位时，果然就正常的返回了WiFi列表，于是解决方案就是在6.0以上系统中，帮用户打开GPS开关：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">23</span> &amp;&amp; !AppUtil.isGpsOPen(<span class="keyword">this</span>)) &#123;</span><br><span class="line">            Settings.Secure.putInt(getContentResolver(), Settings.Secure.LOCATION_MODE, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然，这里还需要用到一些权限：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.ACCESS_FINE_LOCATION"</span>/&gt;</span><br><span class="line">    &lt;uses-permission android:name=<span class="string">"android.permission.WRITE_SECURE_SETTINGS"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果App不是system app，那么是获取不到WRITE_SECURE_SETTINGS权限的，此时就要引导用户去手动打开GPS开关，用户心里应该是会骂娘的：为何扫描个WiFi也需要打开GPS。</p>
+<p>写这篇文章时还是没有想通为何要在扫描WiFi列表时打开GPS，Google是怎么想的，还请大神们赐教。</p>
+
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/03/29/Github更改邮箱引起的权限问题/">Github更改邮箱引起的权限问题</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/03/29/Github更改邮箱引起的权限问题/">
-            <time datetime="2016-03-29T11:57:14.000Z" itemprop="datePublished">2016-03-29</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/踩过的坑/">踩过的坑</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Github/">Github</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/03/05/App打包那点事/">App打包那点事</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/03/05/App打包那点事/">
-            <time datetime="2016-03-05T06:27:42.000Z" itemprop="datePublished">2016-03-05</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/踩过的坑/">踩过的坑</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/webApp/">webApp</a>, <a class="tag-link" href="/tags/webview/">webview</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://lbyte.info/2016/04/10/getScanResults扫描不出WiFi列表的问题/" data-id="cimun7wr00002xybsh4p3rgbc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://lbyte.info/2016/04/10/getScanResults扫描不出WiFi列表的问题/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/04/10/getScanResults扫描不出WiFi列表的问题/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/04/05/LeetCode-Start/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">LeetCode Start &amp;&amp; Q1-Q10</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/04/10/getScanResults扫描不出WiFi列表的问题/" data-title="Android M扫描WiFi列表的问题" data-url="http://lbyte.info/2016/04/10/getScanResults扫描不出WiFi列表的问题/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
