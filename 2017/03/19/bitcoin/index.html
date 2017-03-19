@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WiFi," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="Android 6.0发布近一年之后，我们遇到了第一个Android 6.0的兼容性问题，getScanResults在Android6.0上返回了一个空列表，纳尼，你是在逗我么？去看了下Android 6.0某个分支下的getScanResults源码：">
+<meta name="description" content="区块链是一种社会思潮，它预示着人类社会转型、换代的新时代的到来。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android M扫描WiFi列表的问题">
-<meta property="og:url" content="http://lbyte.info/2016/04/10/getScanResults扫描不出WiFi列表的问题/index.html">
+<meta property="og:title" content="第四周-BitCoin">
+<meta property="og:url" content="http://lbyte.info/2017/03/19/bitcoin/index.html">
 <meta property="og:site_name" content="lbyte">
-<meta property="og:description" content="Android 6.0发布近一年之后，我们遇到了第一个Android 6.0的兼容性问题，getScanResults在Android6.0上返回了一个空列表，纳尼，你是在逗我么？去看了下Android 6.0某个分支下的getScanResults源码：">
-<meta property="og:updated_time" content="2016-06-18T11:19:13.000Z">
+<meta property="og:description" content="区块链是一种社会思潮，它预示着人类社会转型、换代的新时代的到来。">
+<meta property="og:updated_time" content="2017-03-19T03:32:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android M扫描WiFi列表的问题">
-<meta name="twitter:description" content="Android 6.0发布近一年之后，我们遇到了第一个Android 6.0的兼容性问题，getScanResults在Android6.0上返回了一个空列表，纳尼，你是在逗我么？去看了下Android 6.0某个分支下的getScanResults源码：">
+<meta name="twitter:title" content="第四周-BitCoin">
+<meta name="twitter:description" content="区块链是一种社会思潮，它预示着人类社会转型、换代的新时代的到来。">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://lbyte.info/2016/04/10/getScanResults扫描不出WiFi列表的问题/"/>
+  <link rel="canonical" href="http://lbyte.info/2017/03/19/bitcoin/"/>
 
-  <title> Android M扫描WiFi列表的问题 | lbyte </title>
+  <title> 第四周-BitCoin | lbyte </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -266,7 +266,7 @@
             
             
               
-                Android M扫描WiFi列表的问题
+                第四周-BitCoin
               
             
           </h1>
@@ -278,8 +278,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T21:59:03+08:00" content="2016-04-10">
-              2016-04-10
+            <time itemprop="dateCreated" datetime="2017-03-19T11:15:04+08:00" content="2017-03-19">
+              2017-03-19
             </time>
           </span>
 
@@ -292,8 +292,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/踩过的坑/" itemprop="url" rel="index">
-                    <span itemprop="name">踩过的坑</span>
+                  <a href="/categories/Gossip/" itemprop="url" rel="index">
+                    <span itemprop="name">Gossip</span>
                   </a>
                 </span>
 
@@ -308,8 +308,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/10/getScanResults扫描不出WiFi列表的问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/getScanResults扫描不出WiFi列表的问题/" itemprop="commentsCount"></span>
+                <a href="/2017/03/19/bitcoin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/19/bitcoin/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -332,12 +332,11 @@
       
 
       
-        <p>Android 6.0发布近一年之后，我们遇到了第一个Android 6.0的兼容性问题，getScanResults在Android6.0上返回了一个空列表，纳尼，你是在逗我么？去看了下Android 6.0某个分支下的getScanResults源码：<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;ScanResult&gt; <span class="title">getScanResults</span><span class="params">(String callingPackage)</span> </span>&#123;</span><br><span class="line">        enforceAccessPermission();</span><br><span class="line">        <span class="keyword">int</span> userId = UserHandle.getCallingUserId();</span><br><span class="line">        <span class="keyword">int</span> uid = Binder.getCallingUid();</span><br><span class="line">        <span class="keyword">boolean</span> canReadPeerMacAddresses = checkPeersMacAddress();</span><br><span class="line">        <span class="keyword">boolean</span> isActiveNetworkScorer =</span><br><span class="line">                NetworkScorerAppManager.isCallerActiveScorer(mContext, uid);</span><br><span class="line">        <span class="keyword">boolean</span> hasInteractUsersFull = checkInteractAcrossUsersFull();</span><br><span class="line">        <span class="keyword">long</span> ident = Binder.clearCallingIdentity();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!canReadPeerMacAddresses &amp;&amp; !isActiveNetworkScorer</span><br><span class="line">                    &amp;&amp; !isLocationEnabled()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!canReadPeerMacAddresses &amp;&amp; !isActiveNetworkScorer</span><br><span class="line">                    &amp;&amp; !checkCallerCanAccessScanResults(callingPackage, uid)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mAppOps.noteOp(AppOpsManager.OP_WIFI_SCAN, uid, callingPackage)</span><br><span class="line">                    != AppOpsManager.MODE_ALLOWED) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!isCurrentProfile(userId) &amp;&amp; !hasInteractUsersFull) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mWifiStateMachine.syncGetScanResultsList();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            Binder.restoreCallingIdentity(ident);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isLocationEnabled</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.LOCATION_MODE,</span><br><span class="line">                Settings.Secure.LOCATION_MODE_OFF) != Settings.Secure.LOCATION_MODE_OFF;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>重点在：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!canReadPeerMacAddresses &amp;&amp; !isActiveNetworkScorer</span><br><span class="line">                    &amp;&amp; !isLocationEnabled()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;ScanResult&gt;();</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以看到如果定位关闭，那么将直接返回一个空的列表，当我去打开定位时，果然就正常的返回了WiFi列表，于是解决方案就是在6.0以上系统中，帮用户打开GPS开关：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">23</span> &amp;&amp; !AppUtil.isGpsOPen(<span class="keyword">this</span>)) &#123;</span><br><span class="line">            Settings.Secure.putInt(getContentResolver(), Settings.Secure.LOCATION_MODE, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
-<p>当然，这里还需要用到一些权限：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.ACCESS_FINE_LOCATION"</span>/&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_SECURE_SETTINGS"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
-<p>如果App不是system app，那么是获取不到WRITE_SECURE_SETTINGS权限的，此时就要引导用户去手动打开GPS开关，用户心里应该是会骂娘的：为何扫描个WiFi也需要打开GPS。</p>
-<p>写这篇文章时还是没有想通为何要在扫描WiFi列表时打开GPS，Google是怎么想的，还请大神们赐教。</p>
+        <p>区块链是一种社会思潮，它预示着人类社会转型、换代的新时代的到来。<br><a id="more"></a></p>
+<hr>
+<p>入职ViaBTC第一周，在阅读<a href="https://book.douban.com/subject/26860970/" target="_blank" rel="external">区块链，技术驱动金融</a> 这本书，对比特币有了一个基本的认识。之前从来没有想过，为什么会有经济危机？国家为什么要超发货币？跨国交易为什么那么麻烦？更没有想过可以有一种全新的货币系统可以去解决现有货币系统存在的一些问题。当然这种货币不一定是比特币，比特币本身也存在很多问题，例如比特币每秒只支持3笔交易，无法支持大多数人都使用比特币进行交易。最近比特币的分叉事件也导致了比特币价格的下跌。为什么会分叉？是因为bitcoin core和比特币社区产生了一些分歧，bitcore core的存在就是不合理的，比特币本应该是一个去中心化的系统，有了bitcoin core的存在就谈不上去中心化了吧，比特币的发展方向都很大程度掌握在这群人手上。无论比特币存在一些怎样的问题，甚至比特币价格归于0了，我都相信，<strong>区块链技术会将这个世界带入一个新的时代</strong>。</p>
+<p>第一周，和同事们有了简单的接触，大家能力都很强，独当一面，有一定的压力，自己也要做得更好，才不至于给大家拖后腿。团队的氛围也不错，由于我们处在一个高速发展又动荡的行业，常常都有值得探讨的事情发生，例如最近比特币分叉的事件就引起了同事们对中本聪本意的探讨，比特币是否存在不可解决的问题，其它虚拟货币例如ETH是否会有更好的发展前景。</p>
+<p>走进一个新的领域，很兴奋。</p>
 
       
     </div>
@@ -373,28 +372,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/WiFi/" rel="tag">#WiFi</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/05/App打包那点事/" rel="next" title="App打包那点事">
-                <i class="fa fa-chevron-left"></i> App打包那点事
+              <a href="/2017/03/12/走在探索的路上/" rel="next" title="第三周-走在探索的路上">
+                <i class="fa fa-chevron-left"></i> 第三周-走在探索的路上
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/23/SQLCipher加密你的数据库/" rel="prev" title="SQLCipher加密你的数据库">
-                SQLCipher加密你的数据库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -420,8 +409,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/10/getScanResults扫描不出WiFi列表的问题/"
-           data-title="Android M扫描WiFi列表的问题" data-url="http://lbyte.info/2016/04/10/getScanResults扫描不出WiFi列表的问题/">
+      <div class="ds-thread" data-thread-key="2017/03/19/bitcoin/"
+           data-title="第四周-BitCoin" data-url="http://lbyte.info/2017/03/19/bitcoin/">
       </div>
     
   </div>
