@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据库加密," />
+  <meta name="keywords" content="命名,clean code,Java," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="我们都知道，Android的数据库文件存储在/data/data/your_packagename/databases路径下面，只要获得root权限就可以进入该目录，并可以查看、编辑你的应用数据，如果你的数据库存储了一些不允许用户查看和操作的敏感信息，则必须要给数据库加密。SQLCipher是基于SQLite的开源数据库，在SQLite的基础上增加了加密功能，集成已经极其很方便。">
+<meta name="description" content="作为一个Java程序员，我们常常需要给类命名，给方法命名，给变量命名，既然有那么多命名要做，不妨做好它。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQLCipher加密你的数据库">
-<meta property="og:url" content="http://lbyte.info/2016/04/23/SQLCipher加密你的数据库/index.html">
+<meta property="og:title" content="Clean Code之有意义的命名">
+<meta property="og:url" content="http://lbyte.info/2017/03/21/有意义的命名/index.html">
 <meta property="og:site_name" content="lbyte">
-<meta property="og:description" content="我们都知道，Android的数据库文件存储在/data/data/your_packagename/databases路径下面，只要获得root权限就可以进入该目录，并可以查看、编辑你的应用数据，如果你的数据库存储了一些不允许用户查看和操作的敏感信息，则必须要给数据库加密。SQLCipher是基于SQLite的开源数据库，在SQLite的基础上增加了加密功能，集成已经极其很方便。">
-<meta property="og:updated_time" content="2016-06-18T11:19:03.000Z">
+<meta property="og:description" content="作为一个Java程序员，我们常常需要给类命名，给方法命名，给变量命名，既然有那么多命名要做，不妨做好它。">
+<meta property="og:updated_time" content="2017-03-21T06:45:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQLCipher加密你的数据库">
-<meta name="twitter:description" content="我们都知道，Android的数据库文件存储在/data/data/your_packagename/databases路径下面，只要获得root权限就可以进入该目录，并可以查看、编辑你的应用数据，如果你的数据库存储了一些不允许用户查看和操作的敏感信息，则必须要给数据库加密。SQLCipher是基于SQLite的开源数据库，在SQLite的基础上增加了加密功能，集成已经极其很方便。">
+<meta name="twitter:title" content="Clean Code之有意义的命名">
+<meta name="twitter:description" content="作为一个Java程序员，我们常常需要给类命名，给方法命名，给变量命名，既然有那么多命名要做，不妨做好它。">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://lbyte.info/2016/04/23/SQLCipher加密你的数据库/"/>
+  <link rel="canonical" href="http://lbyte.info/2017/03/21/有意义的命名/"/>
 
-  <title> SQLCipher加密你的数据库 | lbyte </title>
+  <title> Clean Code之有意义的命名 | lbyte </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -266,7 +266,7 @@
             
             
               
-                SQLCipher加密你的数据库
+                Clean Code之有意义的命名
               
             
           </h1>
@@ -278,8 +278,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-23T20:39:03+08:00" content="2016-04-23">
-              2016-04-23
+            <time itemprop="dateCreated" datetime="2017-03-21T14:39:31+08:00" content="2017-03-21">
+              2017-03-21
             </time>
           </span>
 
@@ -292,8 +292,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/踩过的坑/" itemprop="url" rel="index">
-                    <span itemprop="name">踩过的坑</span>
+                  <a href="/categories/reading/" itemprop="url" rel="index">
+                    <span itemprop="name">reading</span>
                   </a>
                 </span>
 
@@ -308,8 +308,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/23/SQLCipher加密你的数据库/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/23/SQLCipher加密你的数据库/" itemprop="commentsCount"></span>
+                <a href="/2017/03/21/有意义的命名/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/21/有意义的命名/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -332,17 +332,47 @@
       
 
       
-        <p>我们都知道，Android的数据库文件存储在/data/data/your_packagename/databases路径下面，只要获得root权限就可以进入该目录，并可以查看、编辑你的应用数据，如果你的数据库存储了一些不允许用户查看和操作的敏感信息，则必须要给数据库加密。<br><a href="https://github.com/sqlcipher/sqlcipher" target="_blank" rel="external">SQLCipher</a>是基于SQLite的开源数据库，在SQLite的基础上增加了加密功能，集成已经极其很方便。<br><a id="more"></a></p>
-<h3 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h3><p><a href="https://www.zetetic.net/sqlcipher/sqlcipher-for-android/" target="_blank" rel="external">Sqlcipher的官方Android集成文档</a>已经很老旧，官方团队在其blog中<a href="https://www.zetetic.net/blog/" target="_blank" rel="external">提到可以arr包的方式集成</a>，即如果你是使用Android studio开发，那么你只需要在gradle中加入这一句：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'net.zetetic:android-database-sqlcipher:3.4.0@aar'</span></span><br></pre></td></tr></table></figure></p>
-<p>如果你仍然在使用eclipse开发，也很简单：</p>
-<blockquote>
-<ul>
-<li>请淘汰你的Eclipse，投入Android Studio的怀抱。</li>
+        <p>作为一个Java程序员，我们常常需要给类命名，给方法命名，给变量命名，既然有那么多命名要做，不妨做好它。<br><a id="more"></a></p>
+<hr>
+<h2 id="名副其实"><a href="#名副其实" class="headerlink" title="名副其实"></a>名副其实</h2><p>变量、函数或类的名称应该已经答复了所有的大问题，它应该告诉你，它为什么会存在，它做什么事，应该怎么用。如果名称需要注释来补充，那就不算名副其实。</p>
+<h2 id="避免误导"><a href="#避免误导" class="headerlink" title="避免误导"></a>避免误导</h2><ul>
+<li>别用accountList来指称一组账号，除非他真的是<strong>List</strong>类型。</li>
+<li>提防使用不同之处较小的名称。如XYZControllerForEfficentHandlingOfStrings和另一处的XYZControllerForEfficientStorageOfStrings，要花很长时间去辨别这两个词。</li>
+<li>别用小写字母l和大写字母O作为变量名，看起来就像数字1和数字0。</li>
 </ul>
-</blockquote>
-<h3 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h3><p>创建一个SQLiteOpenHelper，只不过我们应该继承的是<strong>net.sqlcipher.database.SQLiteDatabase</strong>，而不是Android原本的<strong>android.database.sqlite.SQLiteDatabase</strong>,然后记得在你的应用做任何数据库操作之前调用<strong>SQLiteDatabase.loadLibs(this)</strong>去加载SQLCipher所需要的SO库，这一步在<a href="http://blog.csdn.net/guolin_blog/article/details/11952409" target="_blank" rel="external">郭霖老师的文章中</a>有详细的例子，这里不再赘述。</p>
-<h3 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h3><p>如果你是在新建一个App，那么看到step2就足够了，但是如果你像我一样，早期并未意识到要解密数据库，那就要一起来看看<strong>如何将一个已存在的未加密数据库加密</strong>，这个在很多相关博客中都未提到。<br>SQLCipher官方提供了一个sqlcipher_export()方法去将未加密的数据库转换成加密数据库，将加密数据库转换成未加密数据库，<a href="https://www.zetetic.net/sqlcipher/sqlcipher-api/#attach" target="_blank" rel="external">官方文档</a>有详细说明。<br>如果你只关心在Android中如何实现，那么请看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">encrypt</span><span class="params">(Context ctxt, String dbName,</span><br><span class="line">                               String passphrase)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        File originalFile = ctxt.getDatabasePath(dbName);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (originalFile.exists()) &#123;</span><br><span class="line">            File newFile =</span><br><span class="line">                    File.createTempFile(<span class="string">"sqlcipherutils"</span>, <span class="string">"tmp"</span>,</span><br><span class="line">                            ctxt.getCacheDir());</span><br><span class="line">            SQLiteDatabase db =</span><br><span class="line">                    SQLiteDatabase.openDatabase(originalFile.getAbsolutePath(),</span><br><span class="line">                            <span class="string">""</span>, <span class="keyword">null</span>,</span><br><span class="line">                            SQLiteDatabase.OPEN_READWRITE);</span><br><span class="line"></span><br><span class="line">            db.rawExecSQL(String.format(<span class="string">"ATTACH DATABASE '%s' AS encrypted KEY '%s';"</span>,</span><br><span class="line">                    newFile.getAbsolutePath(), passphrase));</span><br><span class="line">            db.rawExecSQL(<span class="string">"SELECT sqlcipher_export('encrypted')"</span>);</span><br><span class="line">            db.rawExecSQL(<span class="string">"DETACH DATABASE encrypted;"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> version = db.getVersion();</span><br><span class="line"></span><br><span class="line">            db.close();</span><br><span class="line"></span><br><span class="line">            db =</span><br><span class="line">                    SQLiteDatabase.openDatabase(newFile.getAbsolutePath(),</span><br><span class="line">                            passphrase, <span class="keyword">null</span>,</span><br><span class="line">                            SQLiteDatabase.OPEN_READWRITE);</span><br><span class="line">            db.setVersion(version);</span><br><span class="line">            db.close();</span><br><span class="line"></span><br><span class="line">            originalFile.delete();</span><br><span class="line">            newFile.renameTo(originalFile);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>已加密的数据库转换成未加密数据库类似，大家可以根据官方文档自己实现。</p>
+<h2 id="做有意义的区分"><a href="#做有意义的区分" class="headerlink" title="做有意义的区分"></a>做有意义的区分</h2><ul>
+<li>以数字系列命名（a1,a2,aN）是依义命名的对立面，完全没有提供正确信息</li>
+<li><strong>废话是另一种没意义的区分</strong>，例如productInfo和productData，名称虽然不同，意思却没有区别。</li>
+<li>只要体现出有意义的区分，使用a这样的前缀就没错，例如把a用在域内变量是可以的。</li>
+<li><strong>废话都是冗余</strong>。nameString并不会比name好，就像customerObject不会比customer好一样。</li>
+</ul>
+<h2 id="使用读得出来的名称"><a href="#使用读得出来的名称" class="headerlink" title="使用读得出来的名称"></a>使用读得出来的名称</h2><p>人类长于记忆和使用单词。大脑的相当一部分就是用来容纳和处理单词的。单词能读出来。利用单词命名最大的好处是沟通的时候方便。</p>
+<h2 id="使用可搜索的名称"><a href="#使用可搜索的名称" class="headerlink" title="使用可搜索的名称"></a>使用可搜索的名称</h2><ul>
+<li>找MAX_CLASSES_PER_STUDENT比找数字7要容易。</li>
+<li>e也不是一个便于搜索的好变量名，因为随处可能出现字母e。</li>
+<li>单字母名称应该仅用于短方法中的本地变量。名称长短应该与其作用域大小相对应。</li>
+</ul>
+<h2 id="避免使用编码"><a href="#避免使用编码" class="headerlink" title="避免使用编码"></a>避免使用编码</h2><ul>
+<li>不必用<strong>m</strong>前缀来标记成员变量，应当把类和函数做得足够小，消除对成员前缀的需要，你应当使用某种可以高亮或者用颜色标出成员的编辑环境。</li>
+<li>在接口和实现中，如果你在做一个创建形状用的抽象工厂类，怎么命名工厂和具体类？是IShapeFactory和ShapeFactory还是ShapeFactory和ShapeFactoryImp。作者更偏向于后者。</li>
+</ul>
+<h2 id="避免思维映射"><a href="#避免思维映射" class="headerlink" title="避免思维映射"></a>避免思维映射</h2><p>不应当让读者在脑中把你的名称翻译为他们熟知的名称，<strong>明确才是王道</strong>，编写他人能理解的代码。</p>
+<h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><p>类名和对象名应该是名词或名词短语，如customer，wikipage，account和addressparser，避免使用Manager,Processer,data或info这样的类名。类名不应该是动词。</p>
+<h2 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h2><ul>
+<li>方法名应当是动词或动词短语。如postPayment,deletePage或save。</li>
+<li>重载构造器时，使用描述了参数的静态工厂方法名通常好于普通构造器。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Complex flucrumPoint = Complex.FromRealNumber(<span class="number">23.0</span>);</span><br><span class="line"></span><br><span class="line">Complex fulcrumPoint = <span class="keyword">new</span> Complex(<span class="number">23.0</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="别扮可爱"><a href="#别扮可爱" class="headerlink" title="别扮可爱"></a>别扮可爱</h2><p>如果名称太耍宝，就只有同作者一般有幽默感的人才记得住。</p>
+<h2 id="每个概念对应一个词"><a href="#每个概念对应一个词" class="headerlink" title="每个概念对应一个词"></a>每个概念对应一个词</h2><p><strong>给每个抽象概念选一个词，并一以贯之。</strong>例如，DeviceManager和ProtocolController之间有何本质的区别？为什么不全用controller或manager，这种名称，让人觉得这两个对象是不同类型的，也分属不同的类。</p>
+<h2 id="别用双关语"><a href="#别用双关语" class="headerlink" title="别用双关语"></a>别用双关语</h2><p>避免将同一单词用于不同目的，同一术语用于不同概念，基本上就是双关语了。</p>
+<h2 id="使用解决方案领域名称"><a href="#使用解决方案领域名称" class="headerlink" title="使用解决方案领域名称"></a>使用解决方案领域名称</h2><p>记住，只有程序员才会读你的代码。所以尽管用那些计算机科学、术语、算法名、模式名、数学术语吧。</p>
+<h2 id="使用源自所涉问题领域的名称"><a href="#使用源自所涉问题领域的名称" class="headerlink" title="使用源自所涉问题领域的名称"></a>使用源自所涉问题领域的名称</h2><p>优秀的程序员和设计师，其工作之一就是分离解决方案领域和问题领域的概念，与所涉问题领域更贴近的代码，应当采用源自问题领域的名称。</p>
+<h2 id="添加有意义的语境"><a href="#添加有意义的语境" class="headerlink" title="添加有意义的语境"></a>添加有意义的语境</h2><ul>
+<li>将一些变量封装成更有具体意义的类</li>
+<li>将大段函数拆分为功能更单一具体的小方法，通过对小方法命名增加语境</li>
+</ul>
+<h2 id="不要添加没用的语境"><a href="#不要添加没用的语境" class="headerlink" title="不要添加没用的语境"></a>不要添加没用的语境</h2><p>若有一个名为加油站豪华版（Gas Station Deluxe）的应用，在其中给每个类添加GSD前缀就不是什么好点子。说白了，你是在和自己在用的工具过不去，输入G，按下自动完成键，结果会得到系统中全部类的列表，这并不是一个聪明的做法。</p>
 
       
     </div>
@@ -380,7 +410,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据库加密/" rel="tag">#数据库加密</a>
+            <a href="/tags/命名/" rel="tag">#命名</a>
+          
+            <a href="/tags/clean-code/" rel="tag">#clean code</a>
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
           
         </div>
       
@@ -389,17 +423,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/10/getScanResults扫描不出WiFi列表的问题/" rel="next" title="Android M扫描WiFi列表的问题">
-                <i class="fa fa-chevron-left"></i> Android M扫描WiFi列表的问题
+              <a href="/2017/03/19/bitcoin/" rel="next" title="第四周-BitCoin">
+                <i class="fa fa-chevron-left"></i> 第四周-BitCoin
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/21/Retrofit官方文档/" rel="prev" title="Retrofit官方文档">
-                Retrofit官方文档 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -425,8 +455,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/23/SQLCipher加密你的数据库/"
-           data-title="SQLCipher加密你的数据库" data-url="http://lbyte.info/2016/04/23/SQLCipher加密你的数据库/">
+      <div class="ds-thread" data-thread-key="2017/03/21/有意义的命名/"
+           data-title="Clean Code之有意义的命名" data-url="http://lbyte.info/2017/03/21/有意义的命名/">
       </div>
     
   </div>
@@ -540,7 +570,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#step1"><span class="nav-number">1.</span> <span class="nav-text">step1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step2"><span class="nav-number">2.</span> <span class="nav-text">step2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3"><span class="nav-number">3.</span> <span class="nav-text">step3</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#名副其实"><span class="nav-number">1.</span> <span class="nav-text">名副其实</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免误导"><span class="nav-number">2.</span> <span class="nav-text">避免误导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做有意义的区分"><span class="nav-number">3.</span> <span class="nav-text">做有意义的区分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用读得出来的名称"><span class="nav-number">4.</span> <span class="nav-text">使用读得出来的名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用可搜索的名称"><span class="nav-number">5.</span> <span class="nav-text">使用可搜索的名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免使用编码"><span class="nav-number">6.</span> <span class="nav-text">避免使用编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免思维映射"><span class="nav-number">7.</span> <span class="nav-text">避免思维映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类名"><span class="nav-number">8.</span> <span class="nav-text">类名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法名"><span class="nav-number">9.</span> <span class="nav-text">方法名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#别扮可爱"><span class="nav-number">10.</span> <span class="nav-text">别扮可爱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每个概念对应一个词"><span class="nav-number">11.</span> <span class="nav-text">每个概念对应一个词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#别用双关语"><span class="nav-number">12.</span> <span class="nav-text">别用双关语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用解决方案领域名称"><span class="nav-number">13.</span> <span class="nav-text">使用解决方案领域名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用源自所涉问题领域的名称"><span class="nav-number">14.</span> <span class="nav-text">使用源自所涉问题领域的名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加有意义的语境"><span class="nav-number">15.</span> <span class="nav-text">添加有意义的语境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不要添加没用的语境"><span class="nav-number">16.</span> <span class="nav-text">不要添加没用的语境</span></a></li></ol></div>
             
           </div>
         </section>
